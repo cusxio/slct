@@ -107,3 +107,7 @@ $('*.links').forEach((link) => {
  */
 $('*.links', true);
 ```
+
+## License
+
+MIT © Jonathan Chan
