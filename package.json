@@ -1,0 +1,48 @@
+{
+  "name": "slct",
+  "version": "1.0.0",
+  "description": "A native DOM selection engine with cache built in.",
+  "license": "MIT",
+  "repository": "cusxio/slct",
+  "author": {
+    "name": "Jonathan Chan",
+    "email": "cus@cusx.io",
+    "url": "https://cusx.io"
+  },
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "jsnext:main": "es/index.js",
+  "files": [
+    "dist",
+    "lib",
+    "es",
+    "src"
+  ],
+  "scripts": {
+    "start": "gulp",
+    "clean": "gulp clean",
+    "lint": "eslint src",
+    "release": "gulp release",
+    "prepublish": "npm run clean && npm run lint && npm run release"
+  },
+  "keywords": [
+    "dom",
+    "selector",
+    "document"
+  ],
+  "devDependencies": {
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.8",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "del": "^2.2.2",
+    "eslint": "^3.11.1",
+    "eslint-config-cusxio": "^0.4.1",
+    "eslint-plugin-import": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sequence": "^0.4.6",
+    "webpack": "^2.1.0-beta.27"
+  }
+}
