@@ -31,6 +31,10 @@ const slct = () => {
                 return ret;
             }
 
+            if (ret === null) {
+                return [];
+            }
+
             /**
              * Only Chrome 51 supports Array-like NodeList.
              * https://www.chromestatus.com/feature/5750902036103168
@@ -42,9 +46,12 @@ const slct = () => {
 
             return ret;
         } catch (e) {
-            if (e.name === 'TypeError') {
-                console.error('Are you using a right identifier? Refer to https://github.com/cusxio/slct for more information.');
+            if (process.env.NODE_ENV === 'development') {
+                if (e.name === 'TypeError') {
+                    console.error('Are you using a right identifier? Refer to https://github.com/cusxio/slct for more information.');
+                }
             }
+
             throw e;
         }
     };
