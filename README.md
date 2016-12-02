@@ -1,6 +1,8 @@
 # Slct
 
-A native DOM selection engine with cache built in. :zap:
+A native DOM selection engine with cache built in.
+
+Only **`592 B`**. :zap:
 
 [Motivation](#motivation).
 
@@ -64,13 +66,22 @@ Often, we have to write code that looks like this:
 
 ```js
 /**
+ * 1.
  * Here, we are caching the selector for better performance.
  * This prevents any additional DOM lookup when the selector
  * is needed again.
+ *
+ * Also, notice the very verbose DOM API's. Who wants to write
+ * `document.querySelectorAll` over and over again?
  */
 const links = document.querySelectorAll('.links');
+const logo = document.getElementById('logo');
+const li = document.getElementsByTagName('li');
+const name = document.getElementsByTagName('random');
+const blue = document.getElementsByClassName('blue');
 
 /**
+ * 2.
  * Since NodeList is not Array-like, we can't call `forEach` directly,
  * and this results in the following code.
  */
@@ -106,6 +117,15 @@ $('*.links').forEach((link) => {
  * To invalidate the selector and re-cache it.
  */
 $('*.links', true);
+
+/**
+ * Also, it comes with identifiers so that you don't have to write
+ * those verbose DOM API's.
+ * Read the API section for more info.
+ */
+ $('@random')   // document.getElementsByName('random');
+ $('?div')      // document.querySelector('div');
+
 ```
 
 ## License
