@@ -5,6 +5,7 @@ const webpack = require('webpack');
 const sequence = require('gulp-sequence');
 const babel = require('gulp-babel');
 const plumber = require('gulp-plumber');
+const pkg = require('./package.json');
 
 const babelCommonJS = {
     presets: ['stage-0', ['es2015', { loose: true }]],
@@ -93,9 +94,9 @@ function createCompiler({ dev }) {
 
     config.output = {
         path: path.resolve('.', 'dist'),
-        library: 'slct',
+        library: pkg.name,
         libraryTarget: 'umd',
-        filename: dev ? 'slct.js' : 'slct.min.js',
+        filename: dev ? `${pkg.name}.js` : `${pkg.name}.min.js`,
     };
 
     config.plugins = [
