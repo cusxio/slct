@@ -1,5 +1,3 @@
-/* eslint no-irregular-whitespace: off */
-
 const slct = () => {
     /**
      * Cache Object
@@ -22,10 +20,7 @@ const slct = () => {
 
     const select = (query) => {
         try {
-            const method = dom[query[0]];
-            query = query.substring(1);
-
-            let ret = document[method](query);
+            const ret = document[dom[query[0]]](query.substring(1));
 
             if (ret instanceof Node) {
                 return ret;
@@ -42,9 +37,7 @@ const slct = () => {
              * Therefore, the following is needed to convert
              * NodeList into Array-like.
              */
-            ret = [].map.call(ret, (x) => x);
-
-            return ret;
+            return [].map.call(ret, (x) => x);
         } catch (e) {
             if (process.env.NODE_ENV === 'development') {
                 if (e.name === 'TypeError') {
@@ -68,15 +61,13 @@ const slct = () => {
     return (query, recache) => {
         if (recache) {
             delete cache[query];
-            cache[query] = select(query);
-            return cache[query];
+            return (cache[query] = select(query));
         }
 
         if (cache[query]) {
             return cache[query];
         }
-        cache[query] = select(query);
-        return cache[query];
+        return (cache[query] = select(query));
     };
 };
 

@@ -2,7 +2,7 @@
 
 A native DOM selection engine with cache built in.
 
-Only **`592 B`**. :zap:
+**`584 B`**. :zap:
 
 [Motivation](#motivation).
 
