@@ -109,7 +109,10 @@ function createCompiler({ dev }) {
             test: /\.js$/,
             exclude: /node_modules/,
             loader: 'babel-loader',
-            query: babelES,
+            query: {
+                presets: ['stage-0', ['es2015', { loose: true, modules: false }]],
+                plugins: ['add-module-exports'],
+            },
         }],
     };
 
