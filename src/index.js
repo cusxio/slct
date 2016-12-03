@@ -55,8 +55,7 @@ const slct = () => {
      *                              `document.getElementById` or
      *                              `document.querySelectorAll`.
      * @param  {Boolean} recache    Invalide Cache, and Re-cache
-     * @return {Node}               Array with a custom `do` function that
-     *                              accepts a callback.
+     * @return {Node}
      */
     return (query, recache) => {
         if (recache) {

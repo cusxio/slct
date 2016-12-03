@@ -1,4 +1,4 @@
-# Slct
+# slct
 
 A native DOM selection engine with cache built in.
 
@@ -58,6 +58,7 @@ $('*.links')   // document.querySelectorAll('.links');
 To invalidate a selector and re-cache it.
 
 Type: `Boolean`
+
 Default: `false`
 
 ## Motivation
@@ -94,14 +95,9 @@ const blue = document.getElementsByClassName('blue');
 
 What if we can write code that looks like this ?
 
-`Slct` automatically does two things:
-
-1. Caches the Selector
-2. Convert's `NodeList` into Array-like
-
 ```js
 /**
- * Slct automatically caches the selector and convert NodeList's
+ * slct automatically caches the selector and convert NodeList
  * into Array-like, thus resulting in less boilerplate code.
  */
 import $ from 'slct';
